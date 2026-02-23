@@ -16,7 +16,6 @@ namespace isc.time.report.be.api.Controllers.v1.TimeReports
             _timeReportService = timeReportService;
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo,Colaborador")]
         [HttpGet("export-excel")]
         public async Task<IActionResult> ExportToExcel([FromQuery] int employeeId, [FromQuery] int clientId, [FromQuery] int year, [FromQuery] int month, [FromQuery] bool fullMonth)
         {
@@ -28,7 +27,6 @@ namespace isc.time.report.be.api.Controllers.v1.TimeReports
             return File(fileBytes, contentType, fileName);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo,Colaborador")]
         [HttpGet("recursos-pendientes")]
         public async Task<IActionResult> GetRecursosPendientes(int? month = null, int? year = null, bool mesCompleto = false)
         {
@@ -36,7 +34,6 @@ namespace isc.time.report.be.api.Controllers.v1.TimeReports
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo,Colaborador")]
         [HttpGet("recursos-pendientes-filtrado")]
         public async Task<IActionResult> GetRecursosPendientesFiltrado(int? month = null, int? year = null, bool mesCompleto = false, byte bancoGuayaquil = 0)
         {
@@ -44,7 +41,6 @@ namespace isc.time.report.be.api.Controllers.v1.TimeReports
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Administrativo")]
         [HttpGet("export-excel-model")]
         public async Task<IActionResult> ExportExcelModelSIGD()
         {

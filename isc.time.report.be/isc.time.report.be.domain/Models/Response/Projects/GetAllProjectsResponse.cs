@@ -1,6 +1,4 @@
-﻿using isc.time.report.be.domain.Models.Response.Persons;
-
-namespace isc.time.report.be.domain.Models.Response.Projects
+﻿namespace isc.time.report.be.domain.Models.Response.Projects
 {
     public class GetAllProjectsResponse
     {

@@ -21,7 +21,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             _leaderService = leaderService;
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpGet("GetAllLeaders")]
         public async Task<ActionResult<SuccessResponse<PagedResult<GetLeaderDetailsResponse>>>> GetAllLeaders(
             [FromQuery] PaginationParams paginationParams,
@@ -31,7 +30,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpGet("GetLeaderByID/{id}")]
         public async Task<ActionResult<SuccessResponse<GetLeaderDetailsResponse>>> GetLeaderById(int id)
         {
@@ -39,7 +37,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPost("CreateLeader")]
         public async Task<ActionResult<SuccessResponse<CreateLeaderResponse>>> CreateLeader([FromBody] CreateLeaderRequest request)
         {
@@ -47,7 +44,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPut("UpdateLeader/{id}")]
         public async Task<ActionResult<SuccessResponse<UpdateLeaderResponse>>> UpdateLeader(int id, [FromBody] UpdateLeaderRequest request)
         {
@@ -55,15 +51,13 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpDelete("InactivateLeaderByID/{id}")]
         public async Task<ActionResult<SuccessResponse<ActivateInactivateLeaderResponse>>> InactivateLeader(int id)
         {
             var result = await _leaderService.InactivateLeader(id);
             return Ok(result);
         }
-        
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
+
         [HttpDelete("ActivateLeaderByID/{id}")]
         public async Task<ActionResult<SuccessResponse<ActivateInactivateLeaderResponse>>> ActivateLeader(int id)
         {
@@ -71,7 +65,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPost("assign-leader-to-project")]
         public async Task<ActionResult<SuccessResponse<AssignLeaderToProjectResponse>>> AssignLeaderToProject([FromBody] AssignLeaderToProjectRequest request)
         {

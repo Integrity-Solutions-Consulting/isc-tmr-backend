@@ -21,7 +21,6 @@ namespace isc.time.report.be.api.Controllers.v1.Persons
             _personService = personService;
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpGet("GetAllPersons")]
         public async Task<ActionResult<SuccessResponse<PagedResult<GetPersonResponse>>>> GetAllPersons(
             [FromQuery] PaginationParams paginationParams,
@@ -31,7 +30,6 @@ namespace isc.time.report.be.api.Controllers.v1.Persons
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpGet("GetPersonByID/{id}")]
         public async Task<ActionResult<SuccessResponse<GetPersonResponse>>> GetPersonById(int id)
         {
@@ -39,7 +37,6 @@ namespace isc.time.report.be.api.Controllers.v1.Persons
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPost("CreatePerson")]
         public async Task<ActionResult<SuccessResponse<CreatePersonResponse>>> CreatePerson([FromBody] CreatePersonRequest request)
         {
@@ -47,7 +44,6 @@ namespace isc.time.report.be.api.Controllers.v1.Persons
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPut("UpdatePerson/{id}")]
         public async Task<ActionResult<SuccessResponse<UpdatePersonResponse>>> UpdatePerson(int id, [FromBody] UpdatePersonRequest request)
         {
@@ -55,7 +51,6 @@ namespace isc.time.report.be.api.Controllers.v1.Persons
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpDelete("InactivatePersonByID/{id}")]
         public async Task<ActionResult<SuccessResponse<ActiveInactivePersonResponse>>> InactivatePerson(int id)
         {
@@ -63,7 +58,6 @@ namespace isc.time.report.be.api.Controllers.v1.Persons
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpDelete("ActivatePersonByID/{id}")]
         public async Task<ActionResult<SuccessResponse<ActiveInactivePersonResponse>>> ActivatePerson(int id)
         {

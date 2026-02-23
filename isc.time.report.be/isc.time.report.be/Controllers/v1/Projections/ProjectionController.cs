@@ -18,7 +18,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projections
             _service = service;
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider")]
         [HttpGet("{projectId:int}/get-all-projection-by-projectId")]
         public async Task<ActionResult<List<ProjectionHoursProjectResponse>>> GetProjectionOfProject(int projectId)
         {
@@ -26,7 +25,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projections
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider")]
         [HttpPost("create")]
         public async Task<ActionResult<ProjectionHoursProjectRequest>> CreateProjection([FromBody] ProjectionHoursProjectRequest request, [FromRoute] int projectId)
         {
@@ -34,7 +32,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projections
             return CreatedAtAction(nameof(CreateProjection), new { projectId = result.ProjecId }, result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider")]
         [HttpPut("{projectId:int}/update/{resourceTypeId:int}")]
         public async Task<ActionResult<UpdateProjectionHoursProjectRequest>> UpdateProjection(
             int projectId,
@@ -45,7 +42,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projections
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider")]
         [HttpPut("{projectId:int}/activate-inactivate/{resourceTypeId:int}")]
         public async Task<IActionResult> ActivateInactivateResource(
             int projectId,
@@ -56,7 +52,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projections
             return NoContent();
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider")]
         [HttpGet("{projectId:int}/export-excel")]
         public async Task<IActionResult> ExportProjectionExcel(int projectId)
         {

@@ -31,7 +31,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
         private List<string> GetRolesFromToken()
             => User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo,Colaborador")]
         [HttpGet("GetAllProjects")]
         public async Task<ActionResult<SuccessResponse<PagedResult<GetAllProjectsResponse>>>> GetAllProjects([FromQuery] PaginationParams paginationParams, [FromQuery] string? search)
         {
@@ -39,7 +38,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(projects);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo,Colaborador")]
         [HttpGet("GetAllProjectsWhereEmployee")]
         public async Task<ActionResult<SuccessResponse<PagedResult<GetAllProjectsResponse>>>> GetAllProjectsByEmployeeID(
         [FromQuery] PaginationParams paginationParams,
@@ -52,7 +50,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(projects);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo,Colaborador")]
         [HttpGet("GetProjectByID/{id}")]
         public async Task<ActionResult<SuccessResponse<GetProjectByIDResponse>>> GetProjectBYID(int id)
         {
@@ -60,7 +57,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(project);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPost("CreateProject")]
         public async Task<ActionResult<SuccessResponse<CreateProjectResponse>>> CreateProject(CreateProjectRequest request)
         {
@@ -69,7 +65,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(project);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPut("UpdateProjectByID/{id}")]
         public async Task<ActionResult<SuccessResponse<UpdateProjectResponse>>> UpdateProjectById(
             int id,
@@ -80,7 +75,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(projectUpdate);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpDelete("InactiveProjectByID/{id}")]
         public async Task<ActionResult<SuccessResponse<ActiveInactiveProjectResponse>>> InactiveProjectById(int id)
         {
@@ -89,7 +83,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(inactiveProject);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpDelete("ActiveProjectByID/{id}")]
         public async Task<ActionResult<SuccessResponse<ActiveInactiveProjectResponse>>> ActiveProjectById(int id)
         {
@@ -98,7 +91,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(ActiveProject);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPost("AssignEmployeesToProject")]
         public async Task<IActionResult> AssignEmployeesToProject([FromBody] AssignEmployeesToProjectRequest request)
         {
@@ -106,7 +98,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(new { message = "Asignaciones actualizadas correctamente." });
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpGet("GetProjectDetailByID/{id}")]
         public async Task<ActionResult<SuccessResponse<GetProjectDetailByIDResponse>>> GetProjectDetailByID(int id)
         {
@@ -115,7 +106,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo,Colaborador")]
         [HttpGet("get-projects-by-employee")]
         public async Task<ActionResult<SuccessResponse<List<GetProjectsByEmployeeIDResponse>>>> GetProjectsByEmployee()
         {
@@ -137,7 +127,6 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
         //    return File(fileBytes, contentType, fileName);
         //}
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo,Colaborador")]
         [HttpGet("get-data-projects-excel")]
         public async Task<ActionResult<SuccessResponse<List<CreateDtoToExcelProject>>>> GetDataProjectExcel()
         {
@@ -145,19 +134,12 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(list);
         }
 
-        //si ves que hay un cambio aqui es porque los roles estaban comentados
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpGet("export-projects-excel")]
         public async Task<IActionResult> ExportProjectsToExcel()
         {
-            // Llamamos a tu ProjectService
             var fileBytes = await _projectService.GenerateProjectsExcelAsync();
-
-            // Definimos nombre dinámico con fecha.
             var fileName = $"Projects_{DateTime.Now:yyyyMMdd_HHmm}.xlsx";
             const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-
-            // Retornamos archivo
             return File(fileBytes, contentType, fileName);
         }
 

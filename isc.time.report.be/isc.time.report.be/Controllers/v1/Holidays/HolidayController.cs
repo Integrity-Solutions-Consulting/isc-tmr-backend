@@ -31,7 +31,6 @@ namespace isc.time.report.be.api.Controllers.v1.Holidays
             return Ok(new SuccessResponse<List<GetAllHolidayResponse>>(200, "Lista de feriados obtenidos correctamente", result));
         }
 
-        //[Authorize (Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPost("create-holiday")]
         public async Task<ActionResult<SuccessResponse<CreateHolidayResponse>>> Create([FromBody] CreateHolidayRequest request)
         {
@@ -39,7 +38,6 @@ namespace isc.time.report.be.api.Controllers.v1.Holidays
             return Ok(new SuccessResponse<CreateHolidayResponse>(201, "Feriado creado correctamente", result));
         }
 
-        //[Authorize ( Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPut("update-holiday/{id}")]
         public async Task<ActionResult<SuccessResponse<UpdateHolidayResponse>>> Update(int id, [FromBody] UpdateHolidayRequest request)
         {

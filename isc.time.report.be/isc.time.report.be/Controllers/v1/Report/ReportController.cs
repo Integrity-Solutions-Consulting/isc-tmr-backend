@@ -18,7 +18,6 @@ namespace isc.time.report.be.api.Controllers.v1.Report
             _service = service;
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Administrativo")]
         [HttpGet("client-resource")]
         public async Task<IActionResult> GetReport()
         {
@@ -26,7 +25,6 @@ namespace isc.time.report.be.api.Controllers.v1.Report
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Administrativo")]
         [HttpGet("project-resource")]
         public async Task<IActionResult> GetReportAsync()
         {
