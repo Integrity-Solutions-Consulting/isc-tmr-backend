@@ -31,14 +31,14 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
         private List<string> GetRolesFromToken()
             => User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
 
-        [HttpGet("GetAllProjects")]
+        [HttpGet("GetAllProjects")] //Se usa en la pagina principal de project.
         public async Task<ActionResult<SuccessResponse<PagedResult<GetAllProjectsResponse>>>> GetAllProjects([FromQuery] PaginationParams paginationParams, [FromQuery] string? search)
         {
             var projects = await _projectService.GetAllProjectsPaginated(paginationParams, search);
             return Ok(projects);
         }
 
-        [HttpGet("GetAllProjectsWhereEmployee")]
+        [HttpGet("GetAllProjectsWhereEmployee")] //----------------------
         public async Task<ActionResult<SuccessResponse<PagedResult<GetAllProjectsResponse>>>> GetAllProjectsByEmployeeID(
         [FromQuery] PaginationParams paginationParams,
         [FromQuery] string? search,
@@ -50,14 +50,14 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(projects);
         }
 
-        [HttpGet("GetProjectByID/{id}")]
+        [HttpGet("GetProjectByID/{id}")] // Se usa al visializar un proyecto, al igual que con  [HttpGet("GetProjectDetailByID/{id}")], tmb en proyecciones.
         public async Task<ActionResult<SuccessResponse<GetProjectByIDResponse>>> GetProjectBYID(int id)
         {
             var project = await _projectService.GetProjectByID(id);
             return Ok(project);
         }
 
-        [HttpPost("CreateProject")]
+        [HttpPost("CreateProject")] //Se usa desde la opcion de Agregar Nuevo.
         public async Task<ActionResult<SuccessResponse<CreateProjectResponse>>> CreateProject(CreateProjectRequest request)
         {
             var project = await _projectService.CreateProject(request);
@@ -65,7 +65,7 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(project);
         }
 
-        [HttpPut("UpdateProjectByID/{id}")]
+        [HttpPut("UpdateProjectByID/{id}")] // Se usa desde la opcion de Editar en acciones.
         public async Task<ActionResult<SuccessResponse<UpdateProjectResponse>>> UpdateProjectById(
             int id,
             [FromBody] UpdateProjectRequest request)
@@ -75,7 +75,7 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(projectUpdate);
         }
 
-        [HttpDelete("InactiveProjectByID/{id}")]
+        [HttpDelete("InactiveProjectByID/{id}")] // Se usa desde acciones 
         public async Task<ActionResult<SuccessResponse<ActiveInactiveProjectResponse>>> InactiveProjectById(int id)
         {
             var inactiveProject = await _projectService.InactiveProject(id);
@@ -83,7 +83,7 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(inactiveProject);
         }
 
-        [HttpDelete("ActiveProjectByID/{id}")]
+        [HttpDelete("ActiveProjectByID/{id}")] // Se usa desde Acciones
         public async Task<ActionResult<SuccessResponse<ActiveInactiveProjectResponse>>> ActiveProjectById(int id)
         {
             var ActiveProject = await _projectService.ActiveProject(id);
@@ -91,14 +91,14 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(ActiveProject);
         }
 
-        [HttpPost("AssignEmployeesToProject")]
+        [HttpPost("AssignEmployeesToProject")] // Se usa para asignar empleados, desde las opciones de las Acciones.
         public async Task<IActionResult> AssignEmployeesToProject([FromBody] AssignEmployeesToProjectRequest request)
         {
             await _projectService.AssignEmployeesToProject(request);
             return Ok(new { message = "Asignaciones actualizadas correctamente." });
         }
 
-        [HttpGet("GetProjectDetailByID/{id}")]
+        [HttpGet("GetProjectDetailByID/{id}")] // Se usa al visializar un proyecto y al asignar un empleado a un proyecto para mostrar los que ya estan asignados.
         public async Task<ActionResult<SuccessResponse<GetProjectDetailByIDResponse>>> GetProjectDetailByID(int id)
         {
             var result = await _projectService.GetProjectDetailByID(id);
@@ -134,7 +134,7 @@ namespace isc.time.report.be.api.Controllers.v1.Projects
             return Ok(list);
         }
 
-        [HttpGet("export-projects-excel")]
+        [HttpGet("export-projects-excel")] // Se usa en la pag principal de project para descargar un excel de los proyectos.
         public async Task<IActionResult> ExportProjectsToExcel()
         {
             var fileBytes = await _projectService.GenerateProjectsExcelAsync();

@@ -55,6 +55,14 @@ namespace isc.time.report.be.api.Controllers.v1.Auth
             }
         }
 
+        [HttpPost("register")]
+        public async Task<ActionResult<SuccessResponse<RegisterResponse>>> Register(RegisterRequest registerRequest)
+        {
+            var register = await authService.Register(registerRequest);
+
+            return Ok(new SuccessResponse<RegisterResponse>(200, "Operacion Exitosa.", register));
+        }
+
         [HttpPost("roles")]
         public async Task<ActionResult<SuccessResponse<RoleResponse>>> CreateRole([FromBody] CreateRoleRequest request)
         {

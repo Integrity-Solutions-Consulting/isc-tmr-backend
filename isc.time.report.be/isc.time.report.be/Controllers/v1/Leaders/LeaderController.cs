@@ -72,5 +72,57 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
+
+
+
+
+        //[Obsolete]
+        //[HttpGet("get-leadership-by-person-id")]
+        //public async Task<ActionResult<SuccessResponse<GetAllLeaderProjectByPersonIdResponse>>> GetLeadershipByPerson(int id)
+        //{
+        //    var result = await _leaderService.GetLeadershipByPersonId(id);
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpGet("get-all-leaders-grouped")]
+        //public async Task<ActionResult<SuccessResponse<List<GetAllLeaderProjectByPersonIdResponse>>>> GetAllLeadersGrouped()
+        //{
+        //    var result = await _leaderService.GetAllLeadersRegisterGrouped();
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpPost("CreateLeaderWithPersonID")]
+        //public async Task<ActionResult<SuccessResponse<CreateLeaderResponse>>> CreateLeaderWithPersonID([FromBody] CreateLeaderWithPersonIDRequest request)
+        //{
+        //    var result = await _leaderService.CreateLeaderWithPersonID(request);
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpPost("CreateLeaderWithPerson")]
+        //public async Task<ActionResult<SuccessResponse<CreateLeaderResponse>>> CreateLeaderWithPerson([FromBody] CreateLeaderWithPersonOBJRequest request)
+        //{
+        //    var result = await _leaderService.CreateLeaderWithPerson(request);
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpPut("UpdateLeaderWithPersonID/{id}")]
+        //public async Task<ActionResult<SuccessResponse<UpdateLeaderResponse>>> UpdateLeaderWithPersonID(int id, [FromBody] UpdateLeaderWithPersonIDRequest request)
+        //{
+        //    var result = await _leaderService.UpdateLeader(id, request);
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpPut("UpdateLeaderWithPerson/{id}")]
+        //public async Task<ActionResult<SuccessResponse<UpdateLeaderResponse>>> UpdateLeaderWithPerson(int id, [FromBody] UpdateLeaderWithPersonOBJRequest request)
+        //{
+        //    var result = await _leaderService.UpdateLeaderWithPerson(id, request);
+        //    return Ok(result);
+        //}
+
     }
 }

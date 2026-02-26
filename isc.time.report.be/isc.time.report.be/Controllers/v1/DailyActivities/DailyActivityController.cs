@@ -66,7 +66,7 @@ namespace isc.time.report.be.api.Controllers.v1.DailyActivities
             return Ok(new SuccessResponse<ActiveInactiveDailyActivityResponse>(200, "Actividad activada", result));
         }
 
-+        [HttpPost("ApproveActivities")]
+        [HttpPost("ApproveActivities")]
         public async Task<ActionResult<SuccessResponse<List<GetDailyActivityResponse>>>> ApproveActivities(
             [FromBody] AproveDailyActivityRequest request)
         {

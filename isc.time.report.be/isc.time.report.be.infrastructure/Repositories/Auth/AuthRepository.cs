@@ -80,10 +80,20 @@ namespace isc.time.report.be.infrastructure.Repositories.Auth
 
                 return user;
             }
+            //catch (Exception ex)
+            //{
+            //    await transaction.RollbackAsync();
+            //    throw new Exception("Error al crear el usuario o enviar el correo.", ex);
+            //}
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                throw new Exception("Error al crear el usuario o enviar el correo.", ex);
+
+                // Obtenemos el mensaje profundo si existe, o el principal.
+                var errorReal = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+
+                // Lo concatenamos para que tu JSON te lo muestre.
+                throw new Exception($"Error: {errorReal}", ex);
             }
         }
 
