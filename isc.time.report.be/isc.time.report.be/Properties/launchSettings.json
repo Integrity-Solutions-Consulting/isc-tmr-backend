@@ -10,7 +10,13 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ISC_TIME_REPORT_BD_USER": "timereport",
-        "ISC_TIME_REPORT_BD_PASSWORD": "P@ssw0rd01"
+        "ISC_TIME_REPORT_BD_PASSWORD": "P@ssw0rd01",
+        "EmailSettings__SmtpServer": "smtp.office365.com",
+        "EmailSettings__Port": "587",
+        "EmailSettings__SenderName": "ISC Time Report",
+        "EmailSettings__SenderEmail": "Soporte@integritysolutions.com.ec",
+        "EmailSettings__Username": "Soporte@integritysolutions.com.ec",
+        "EmailSettings__Password": "gfzwycbbxhxhgnqr"
       }
     },
   }

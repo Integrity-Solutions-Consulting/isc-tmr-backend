@@ -3,7 +3,6 @@ using isc.time.report.be.api.Security;
 using isc.time.report.be.application.IOC;
 using isc.time.report.be.domain.Entity.Emails;
 using isc.time.report.be.infrastructure.IOC;
-using isc.time.report.be.infrastructure.Repositories.Auth;
 using isc.time.report.be.infrastructure.Utils.Secutiry;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

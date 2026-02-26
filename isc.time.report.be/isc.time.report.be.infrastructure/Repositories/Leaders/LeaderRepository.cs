@@ -1,20 +1,10 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
-using isc.time.report.be.application.Interfaces.Repository.Leaders;
-using isc.time.report.be.domain.Entity.Clients;
+﻿using isc.time.report.be.application.Interfaces.Repository.Leaders;
 using isc.time.report.be.domain.Entity.Leaders;
-using isc.time.report.be.domain.Entity.Persons;
-using isc.time.report.be.domain.Entity.Projects;
 using isc.time.report.be.domain.Entity.Shared;
 using isc.time.report.be.domain.Exceptions;
 using isc.time.report.be.infrastructure.Database;
 using isc.time.report.be.infrastructure.Utils.Pagination;
 using Microsoft.EntityFrameworkCore;
-using MimeKit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace isc.time.report.be.infrastructure.Repositories.Leaders
 {

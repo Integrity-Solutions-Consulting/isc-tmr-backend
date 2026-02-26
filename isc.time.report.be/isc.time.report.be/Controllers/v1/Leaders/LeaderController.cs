@@ -21,7 +21,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             _leaderService = leaderService;
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpGet("GetAllLeaders")]
         public async Task<ActionResult<SuccessResponse<PagedResult<GetLeaderDetailsResponse>>>> GetAllLeaders(
             [FromQuery] PaginationParams paginationParams,
@@ -31,7 +30,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpGet("GetLeaderByID/{id}")]
         public async Task<ActionResult<SuccessResponse<GetLeaderDetailsResponse>>> GetLeaderById(int id)
         {
@@ -39,7 +37,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPost("CreateLeader")]
         public async Task<ActionResult<SuccessResponse<CreateLeaderResponse>>> CreateLeader([FromBody] CreateLeaderRequest request)
         {
@@ -47,7 +44,6 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPut("UpdateLeader/{id}")]
         public async Task<ActionResult<SuccessResponse<UpdateLeaderResponse>>> UpdateLeader(int id, [FromBody] UpdateLeaderRequest request)
         {
@@ -55,15 +51,13 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpDelete("InactivateLeaderByID/{id}")]
         public async Task<ActionResult<SuccessResponse<ActivateInactivateLeaderResponse>>> InactivateLeader(int id)
         {
             var result = await _leaderService.InactivateLeader(id);
             return Ok(result);
         }
-        
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
+
         [HttpDelete("ActivateLeaderByID/{id}")]
         public async Task<ActionResult<SuccessResponse<ActivateInactivateLeaderResponse>>> ActivateLeader(int id)
         {
@@ -71,13 +65,64 @@ namespace isc.time.report.be.api.Controllers.v1.Leader
             return Ok(result);
         }
 
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         [HttpPost("assign-leader-to-project")]
         public async Task<ActionResult<SuccessResponse<AssignLeaderToProjectResponse>>> AssignLeaderToProject([FromBody] AssignLeaderToProjectRequest request)
         {
             var result = await _leaderService.AssignLeaderToProject(request);
             return Ok(result);
         }
+
+
+
+
+
+        //[Obsolete]
+        //[HttpGet("get-leadership-by-person-id")]
+        //public async Task<ActionResult<SuccessResponse<GetAllLeaderProjectByPersonIdResponse>>> GetLeadershipByPerson(int id)
+        //{
+        //    var result = await _leaderService.GetLeadershipByPersonId(id);
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpGet("get-all-leaders-grouped")]
+        //public async Task<ActionResult<SuccessResponse<List<GetAllLeaderProjectByPersonIdResponse>>>> GetAllLeadersGrouped()
+        //{
+        //    var result = await _leaderService.GetAllLeadersRegisterGrouped();
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpPost("CreateLeaderWithPersonID")]
+        //public async Task<ActionResult<SuccessResponse<CreateLeaderResponse>>> CreateLeaderWithPersonID([FromBody] CreateLeaderWithPersonIDRequest request)
+        //{
+        //    var result = await _leaderService.CreateLeaderWithPersonID(request);
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpPost("CreateLeaderWithPerson")]
+        //public async Task<ActionResult<SuccessResponse<CreateLeaderResponse>>> CreateLeaderWithPerson([FromBody] CreateLeaderWithPersonOBJRequest request)
+        //{
+        //    var result = await _leaderService.CreateLeaderWithPerson(request);
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpPut("UpdateLeaderWithPersonID/{id}")]
+        //public async Task<ActionResult<SuccessResponse<UpdateLeaderResponse>>> UpdateLeaderWithPersonID(int id, [FromBody] UpdateLeaderWithPersonIDRequest request)
+        //{
+        //    var result = await _leaderService.UpdateLeader(id, request);
+        //    return Ok(result);
+        //}
+
+        //[Obsolete]
+        //[HttpPut("UpdateLeaderWithPerson/{id}")]
+        //public async Task<ActionResult<SuccessResponse<UpdateLeaderResponse>>> UpdateLeaderWithPerson(int id, [FromBody] UpdateLeaderWithPersonOBJRequest request)
+        //{
+        //    var result = await _leaderService.UpdateLeaderWithPerson(id, request);
+        //    return Ok(result);
+        //}
 
     }
 }

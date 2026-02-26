@@ -55,11 +55,15 @@ namespace isc.time.report.be.api.Controllers.v1.Auth
             }
         }
 
+        [HttpPost("register")]
+        public async Task<ActionResult<SuccessResponse<RegisterResponse>>> Register(RegisterRequest registerRequest)
+        {
+            var register = await authService.Register(registerRequest);
 
-
+            return Ok(new SuccessResponse<RegisterResponse>(200, "Operacion Exitosa.", register));
+        }
 
         [HttpPost("roles")]
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         public async Task<ActionResult<SuccessResponse<RoleResponse>>> CreateRole([FromBody] CreateRoleRequest request)
         {
             var role = await authService.CreateRoleAsync(request);
@@ -67,7 +71,6 @@ namespace isc.time.report.be.api.Controllers.v1.Auth
         }
 
         [HttpGet("GetRoles")]
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         public async Task<ActionResult<SuccessResponse<List<GetRolesResponse>>>> GetAllRoles()
         {
             var roles = await authService.GetAllRolesAsync();
@@ -75,7 +78,6 @@ namespace isc.time.report.be.api.Controllers.v1.Auth
         }
 
         [HttpPut("UpdateRole/{id}")]
-        //[Authorize(Roles = "Administrador,Gerente,Lider,Recursos Humanos,Administrativo")]
         public async Task<ActionResult<SuccessResponse<RoleResponse>>> UpdateRole(int id, [FromBody] UpdateRoleRequest request)
         {
             var role = await authService.UpdateRoleAsync(id, request);

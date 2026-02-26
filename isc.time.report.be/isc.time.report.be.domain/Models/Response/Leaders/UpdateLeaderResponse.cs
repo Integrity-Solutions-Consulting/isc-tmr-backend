@@ -1,6 +1,4 @@
-﻿using isc.time.report.be.domain.Models.Response.Persons;
-
-namespace isc.time.report.be.domain.Models.Response.Leaders
+﻿namespace isc.time.report.be.domain.Models.Response.Leaders
 {
     public class UpdateLeaderResponse
     {

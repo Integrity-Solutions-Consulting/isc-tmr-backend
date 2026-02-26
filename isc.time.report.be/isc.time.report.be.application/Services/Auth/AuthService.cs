@@ -160,7 +160,7 @@ namespace isc.time.report.be.application.Services.Auth
                 <p><strong>Usuario:</strong> {registerRequest.Username}</p>
                 <p><strong>Contraseña temporal:</strong> {generatedPassword}</p>
                 <p>Por seguridad, deberás cambiar la contraseña al iniciar sesión.</p>
-                    <a href='https://app.timereport.integritysolutions.com.ec' class='button'>Ir a la Página Principal</a>
+                    <a href='https://tmr.integritysolutions.com.ec' class='button'>Ir a la Página Principal</a>
                         </div>
                     </div>
                 </body>
