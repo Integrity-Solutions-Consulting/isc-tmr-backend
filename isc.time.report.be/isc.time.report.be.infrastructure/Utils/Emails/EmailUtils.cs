@@ -46,7 +46,7 @@ namespace isc.time.report.be.infrastructure.Utils.Emails
             email.Body = builder.ToMessageBody();
 
             using var smtp = new MailKit.Net.Smtp.SmtpClient();
-            await smtp.ConnectAsync(_settings.SmtpServer, _settings.Port, SecureSocketOptions.SslOnConnect);
+            await smtp.ConnectAsync(_settings.SmtpServer, _settings.Port, SecureSocketOptions.StartTls);
             await smtp.AuthenticateAsync(_settings.Username, _settings.Password);
             await smtp.SendAsync(email);
             await smtp.DisconnectAsync(true);
