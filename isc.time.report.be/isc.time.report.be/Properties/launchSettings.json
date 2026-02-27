@@ -10,7 +10,14 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ISC_TIME_REPORT_BD_USER": "timereport",
-        "ISC_TIME_REPORT_BD_PASSWORD": "P@ssw0rd01"
+        "ISC_TIME_REPORT_BD_PASSWORD": "P@ssw0rd01",
+
+        "EmailSettings__SmtpServer": "",
+        "EmailSettings__Port": "",
+        "EmailSettings__SenderName": "",
+        "EmailSettings__SenderEmail": "",
+        "EmailSettings__Username": "",
+        "EmailSettings__Password": ""
       }
     },
   }
