@@ -21,6 +21,17 @@ namespace isc.time.report.be.infrastructure.Utils.Emails
 
         public async Task SendEmailAsync(string to, string subject, string body)
         {
+            if (string.IsNullOrWhiteSpace(_settings.SenderEmail))
+                throw new Exception("SenderEmail no configurado en EmailSettings");
+            if (string.IsNullOrWhiteSpace(to))
+                throw new Exception("Correo destinatario vacío");
+            if (string.IsNullOrWhiteSpace(_settings.SmtpServer))
+                throw new Exception("SmtpServer no configurado");
+            if (string.IsNullOrWhiteSpace(_settings.Username))
+                throw new Exception("SMTP Username no configurado");
+            if (string.IsNullOrWhiteSpace(_settings.Password))
+                throw new Exception("SMTP Password no configurado");
+
             Console.WriteLine("[SMTP DEBUG] ----------");
             Console.WriteLine($"Host: {_settings.SmtpServer}");
             Console.WriteLine($"Port: {_settings.Port}");
